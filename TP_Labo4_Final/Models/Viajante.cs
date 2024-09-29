@@ -19,10 +19,6 @@
 
 
         //Relacion de uno a muchos con viajantes
-        public ICollection<Cliente>? Clientes { get; set; }
-
-        //Relacion de uno a muchos con pedidos 
-        public ICollection<Pedido>? Pedidos { get; set; }
-        
+        public ICollection<Cliente> Clientes { get; set; }               
     }
 }

@@ -21,7 +21,12 @@ namespace TP_Labo4_Final.Controllers
         // GET: Viajantes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Viajantes.ToListAsync());
+            //Incluir lo clientes y sus pedidos en cada viajante
+            var viajantes = await _context.Viajantes
+                .Include(v => v.Clientes)
+                .ThenInclude(c => c.Pedidos)
+                .ToListAsync();
+            return View(viajantes);
         }
 
         // GET: Viajantes/Details/5

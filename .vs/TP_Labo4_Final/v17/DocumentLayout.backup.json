@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|c:\\users\\matim\\onedrive\\tup\\segundoa\u00F1o\\segundocuatrimestre\\laboratorioiv\\tpfinal\\tp_labo4_final\\tp_labo4_final\\models\\viajante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|solutionrelative:tp_labo4_final\\models\\viajante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|c:\\users\\matim\\onedrive\\tup\\segundoa\u00F1o\\segundocuatrimestre\\laboratorioiv\\tpfinal\\tp_labo4_final\\tp_labo4_final\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|solutionrelative:tp_labo4_final\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|c:\\users\\matim\\onedrive\\tup\\segundoa\u00F1o\\segundocuatrimestre\\laboratorioiv\\tpfinal\\tp_labo4_final\\tp_labo4_final\\views\\viajantes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|solutionrelative:tp_labo4_final\\views\\viajantes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|c:\\users\\matim\\onedrive\\tup\\segundoa\u00F1o\\segundocuatrimestre\\laboratorioiv\\tpfinal\\tp_labo4_final\\tp_labo4_final\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|solutionrelative:tp_labo4_final\\models\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|c:\\users\\matim\\onedrive\\tup\\segundoa\u00F1o\\segundocuatrimestre\\laboratorioiv\\tpfinal\\tp_labo4_final\\tp_labo4_final\\controllers\\viajantescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|solutionrelative:tp_labo4_final\\controllers\\viajantescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|c:\\users\\matim\\onedrive\\tup\\segundoa\u00F1o\\segundocuatrimestre\\laboratorioiv\\tpfinal\\tp_labo4_final\\tp_labo4_final\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|solutionrelative:tp_labo4_final\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|c:\\users\\matim\\onedrive\\tup\\segundoa\u00F1o\\segundocuatrimestre\\laboratorioiv\\tpfinal\\tp_labo4_final\\tp_labo4_final\\models\\viajante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|solutionrelative:tp_labo4_final\\models\\viajante.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|c:\\users\\matim\\onedrive\\tup\\segundoa\u00F1o\\segundocuatrimestre\\laboratorioiv\\tpfinal\\tp_labo4_final\\tp_labo4_final\\views\\viajantes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|solutionrelative:tp_labo4_final\\views\\viajantes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,19 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Pedido.cs",
-              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Pedido.cs",
-              "RelativeDocumentMoniker": "TP_Labo4_Final\\Models\\Pedido.cs",
-              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Pedido.cs",
-              "RelativeToolTip": "TP_Labo4_Final\\Models\\Pedido.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "TP_Labo4_Final\\Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Cliente.cs",
+              "RelativeToolTip": "TP_Labo4_Final\\Models\\Cliente.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA5wBgAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T12:12:43.332Z",
+              "WhenOpened": "2024-09-29T14:00:40.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Viajante.cs",
+              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Viajante.cs",
+              "RelativeDocumentMoniker": "TP_Labo4_Final\\Models\\Viajante.cs",
+              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Viajante.cs",
+              "RelativeToolTip": "TP_Labo4_Final\\Models\\Viajante.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwBUAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T14:00:15.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Views\\Viajantes\\Index.cshtml",
+              "RelativeDocumentMoniker": "TP_Labo4_Final\\Views\\Viajantes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Views\\Viajantes\\Index.cshtml",
+              "RelativeToolTip": "TP_Labo4_Final\\Views\\Viajantes\\Index.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAqwGsAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-29T13:44:21.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ViajantesController.cs",
+              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Controllers\\ViajantesController.cs",
+              "RelativeDocumentMoniker": "TP_Labo4_Final\\Controllers\\ViajantesController.cs",
+              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Controllers\\ViajantesController.cs",
+              "RelativeToolTip": "TP_Labo4_Final\\Controllers\\ViajantesController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAmwBgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T13:33:26.346Z",
               "EditorCaption": ""
             },
             {
@@ -56,57 +91,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Views\\Viajantes\\Create.cshtml",
-              "RelativeDocumentMoniker": "TP_Labo4_Final\\Views\\Viajantes\\Create.cshtml",
-              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Views\\Viajantes\\Create.cshtml",
-              "RelativeToolTip": "TP_Labo4_Final\\Views\\Viajantes\\Create.cshtml",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAlwFAAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-28T15:35:03.587Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "TP_Labo4_Final\\Models\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\AppDbContext.cs",
-              "RelativeToolTip": "TP_Labo4_Final\\Models\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T15:04:57.425Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Viajante.cs",
-              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Viajante.cs",
-              "RelativeDocumentMoniker": "TP_Labo4_Final\\Models\\Viajante.cs",
-              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Viajante.cs",
-              "RelativeToolTip": "TP_Labo4_Final\\Models\\Viajante.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAywBkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T13:11:51.926Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Cliente.cs",
-              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Cliente.cs",
-              "RelativeDocumentMoniker": "TP_Labo4_Final\\Models\\Cliente.cs",
-              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Models\\Cliente.cs",
-              "RelativeToolTip": "TP_Labo4_Final\\Models\\Cliente.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAADwvxUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T13:08:18.276Z"
             }
           ]
         }
