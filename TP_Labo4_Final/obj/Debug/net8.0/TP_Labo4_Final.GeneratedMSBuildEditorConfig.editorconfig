@@ -1,0 +1,155 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TP_Labo4_Final
+build_property.RootNamespace = TP_Labo4_Final
+build_property.ProjectDir = C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Articulos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Articulos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Articulos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Articulos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Articulos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJ0aWN1bG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Categorias/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Categorias/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Categorias/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Categorias/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Categorias/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmlhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Clientes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Clientes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Clientes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Clientes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Clientes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Pedidos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Pedidos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Pedidos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Pedidos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Pedidos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Viajantes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamFudGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Viajantes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamFudGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Viajantes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamFudGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Viajantes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamFudGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Viajantes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlhamFudGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matim/OneDrive/TUP/segundoAño/SegundoCuatrimestre/LaboratorioIV/TpFinal/TP_Labo4_Final/TP_Labo4_Final/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pc6ise2f7d
