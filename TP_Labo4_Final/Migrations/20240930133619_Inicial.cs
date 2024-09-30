@@ -25,7 +25,7 @@ namespace TP_Labo4_Final.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Clientes",
+                name: "Viajantes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -46,11 +46,11 @@ namespace TP_Labo4_Final.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.Id);
+                    table.PrimaryKey("PK_Viajantes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Viajantes",
+                name: "Clientes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -68,11 +68,17 @@ namespace TP_Labo4_Final.Migrations
                     Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Estado = table.Column<bool>(type: "bit", nullable: false),
-                    PedidoId = table.Column<int>(type: "int", nullable: false)
+                    ViajanteId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Viajantes", x => x.Id);
+                    table.PrimaryKey("PK_Clientes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Clientes_Viajantes_ViajanteId",
+                        column: x => x.ViajanteId,
+                        principalTable: "Viajantes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,8 +89,7 @@ namespace TP_Labo4_Final.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Numero = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ClienteId = table.Column<int>(type: "int", nullable: false),
-                    ViajanteId = table.Column<int>(type: "int", nullable: true)
+                    ClienteId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,11 +100,6 @@ namespace TP_Labo4_Final.Migrations
                         principalTable: "Clientes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Pedidos_Viajantes_ViajanteId",
-                        column: x => x.ViajanteId,
-                        principalTable: "Viajantes",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -112,8 +112,8 @@ namespace TP_Labo4_Final.Migrations
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Precio = table.Column<double>(type: "float", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
-                    CategoriaId = table.Column<int>(type: "int", nullable: false),
                     NombreImagen = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CategoriaId = table.Column<int>(type: "int", nullable: false),
                     PedidoId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -143,14 +143,14 @@ namespace TP_Labo4_Final.Migrations
                 column: "PedidoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Clientes_ViajanteId",
+                table: "Clientes",
+                column: "ViajanteId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Pedidos_ClienteId",
                 table: "Pedidos",
                 column: "ClienteId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Pedidos_ViajanteId",
-                table: "Pedidos",
-                column: "ViajanteId");
         }
 
         /// <inheritdoc />

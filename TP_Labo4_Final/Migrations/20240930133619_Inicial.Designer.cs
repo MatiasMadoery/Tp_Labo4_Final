@@ -12,8 +12,8 @@ using TP_Labo4_Final.Models;
 namespace TP_Labo4_Final.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240928013755_Actializacion 1")]
-    partial class Actializacion1
+    [Migration("20240930133619_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,7 +126,12 @@ namespace TP_Labo4_Final.Migrations
                     b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ViajanteId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ViajanteId");
 
                     b.ToTable("Clientes");
                 });
@@ -148,14 +153,9 @@ namespace TP_Labo4_Final.Migrations
                     b.Property<string>("Numero")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ViajanteId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ClienteId");
-
-                    b.HasIndex("ViajanteId");
 
                     b.ToTable("Pedidos");
                 });
@@ -198,9 +198,6 @@ namespace TP_Labo4_Final.Migrations
                     b.Property<string>("Pais")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PedidoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Piso")
                         .HasColumnType("nvarchar(max)");
 
@@ -218,41 +215,58 @@ namespace TP_Labo4_Final.Migrations
             modelBuilder.Entity("TP_Labo4_Final.Models.Articulo", b =>
                 {
                     b.HasOne("TP_Labo4_Final.Models.Categoria", "Categoria")
-                        .WithMany()
+                        .WithMany("Articulos")
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TP_Labo4_Final.Models.Pedido", null)
-                        .WithMany("Filtro")
+                        .WithMany("Articulos")
                         .HasForeignKey("PedidoId");
 
                     b.Navigation("Categoria");
                 });
 
+            modelBuilder.Entity("TP_Labo4_Final.Models.Cliente", b =>
+                {
+                    b.HasOne("TP_Labo4_Final.Models.Viajante", "Viajante")
+                        .WithMany("Clientes")
+                        .HasForeignKey("ViajanteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Viajante");
+                });
+
             modelBuilder.Entity("TP_Labo4_Final.Models.Pedido", b =>
                 {
                     b.HasOne("TP_Labo4_Final.Models.Cliente", "Cliente")
-                        .WithMany()
+                        .WithMany("Pedidos")
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TP_Labo4_Final.Models.Viajante", null)
-                        .WithMany("Pedidos")
-                        .HasForeignKey("ViajanteId");
-
                     b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("TP_Labo4_Final.Models.Categoria", b =>
+                {
+                    b.Navigation("Articulos");
+                });
+
+            modelBuilder.Entity("TP_Labo4_Final.Models.Cliente", b =>
+                {
+                    b.Navigation("Pedidos");
                 });
 
             modelBuilder.Entity("TP_Labo4_Final.Models.Pedido", b =>
                 {
-                    b.Navigation("Filtro");
+                    b.Navigation("Articulos");
                 });
 
             modelBuilder.Entity("TP_Labo4_Final.Models.Viajante", b =>
                 {
-                    b.Navigation("Pedidos");
+                    b.Navigation("Clientes");
                 });
 #pragma warning restore 612, 618
         }

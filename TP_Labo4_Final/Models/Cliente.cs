@@ -22,7 +22,7 @@
         public Viajante? Viajante { get; set; }
 
         //Relacion uno a muchos con pedidos
-        public ICollection<Pedido> Pedidos { get; set; }
+        public ICollection<Pedido> ?Pedidos { get; set; }
 
     }
 }

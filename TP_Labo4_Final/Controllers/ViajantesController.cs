@@ -23,8 +23,8 @@ namespace TP_Labo4_Final.Controllers
         {
             //Incluir lo clientes y sus pedidos en cada viajante
             var viajantes = await _context.Viajantes
-                .Include(v => v.Clientes)
-                .ThenInclude(c => c.Pedidos)
+                .Include(v => v.Clientes!)
+                .ThenInclude(c => c.Pedidos!)
                 .ToListAsync();
             return View(viajantes);
         }

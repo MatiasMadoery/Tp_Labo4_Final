@@ -21,13 +21,7 @@ namespace TP_Labo4_Final.Models
             modelBuilder.Entity<Pedido>()
                 .HasOne(p => p.Cliente)
                 .WithMany(c => c.Pedidos)
-                .HasForeignKey(p => p.ClienteId);
-
-            //Relacion uno a muchos entre Pedido y Viajante
-            modelBuilder.Entity<Pedido>()
-                .HasOne(p => p.Viajante)
-                .WithMany(v => v.Pedidos)
-                .HasForeignKey(p => p.VianjanteId);
+                .HasForeignKey(p => p.ClienteId);         
 
             //Relacion uno a muchos entre Cliente y Viajante
             modelBuilder.Entity<Cliente>()

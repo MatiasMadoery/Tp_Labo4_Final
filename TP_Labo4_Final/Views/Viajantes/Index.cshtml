@@ -97,12 +97,13 @@
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
-                    @foreach(var cliente in item.Clientes)
+                <ul>  
+                    @foreach(var cliente in item.Clientes!)
                     {
                         <li>
                             Cliente: @cliente.Nombre @cliente.Apellido
                             <ul>
-                                @foreach(var pedido in cliente.Pedidos)
+                                @foreach(var pedido in cliente.Pedidos!)
                                 {
                                     <li>
                                         Pedido: @pedido.Numero - @pedido.Fecha.ToShortDateString()
@@ -111,6 +112,7 @@
                             </ul>
                         </li>
                     }
+               </ul>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
