@@ -13,15 +13,23 @@ namespace TP_Labo4_Final.Controllers
     {
         private readonly AppDbContext _context;
 
-        public ArticulosController(AppDbContext context)
+        //Publicar una imagen
+        private readonly IWebHostEnvironment _env;
+
+        public ArticulosController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         // GET: Articulos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Articulos.ToListAsync());
+            //Incluir las categorias en cada articulo.
+            var articulos = await _context.Articulos
+                .Include(v => v.Categoria!)                
+                .ToListAsync();
+            return View(articulos);
         }
 
         // GET: Articulos/Details/5
@@ -57,6 +65,29 @@ namespace TP_Labo4_Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Para subir imagen
+                var archivos = HttpContext.Request.Form.Files;//Subir archivos de imagen
+                if (archivos != null && archivos.Count > 0)
+                {
+                    var archivoFoto = archivos[0];
+                    if (archivoFoto.Length > 0)
+                    {
+                        var pathDestino = Path.Combine(_env.WebRootPath, "img/images");
+
+                        var archivoDestino = Guid.NewGuid().ToString().Replace("-", "");
+
+                        var extension = Path.GetExtension(archivoFoto.FileName);
+                        archivoDestino += extension;
+
+
+                        using (var filestream = new FileStream(Path.Combine(pathDestino, archivoDestino), FileMode.Create))
+                        {
+                            archivoFoto.CopyTo(filestream);
+                            articulo.NombreImagen = archivoDestino;
+                        }
+                    }
+                }
+                //fin subir imagen
                 _context.Add(articulo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -77,6 +108,10 @@ namespace TP_Labo4_Final.Controllers
             {
                 return NotFound();
             }
+
+            // Cargar todas las categorías en un SelectList para mostrarlas en la vista
+            ViewBag.CategoriaId = new SelectList(_context.Categorias, "Id", "Nombre", articulo.CategoriaId);
+
             return View(articulo);
         }
 
@@ -85,7 +120,7 @@ namespace TP_Labo4_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Codigo,Descripcion,Precio,Stock,Categoria,NombreImagen")] Articulo articulo)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Codigo,Descripcion,Precio,Stock,CategoriaId,NombreImagen")] Articulo articulo)
         {
             if (id != articulo.Id)
             {
@@ -112,6 +147,10 @@ namespace TP_Labo4_Final.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            // Si hay un error, volver a cargar la lista de categorías
+            ViewBag.CategoriaId = new SelectList(_context.Categorias, "Id", "Nombre", articulo.CategoriaId);
+
             return View(articulo);
         }
 

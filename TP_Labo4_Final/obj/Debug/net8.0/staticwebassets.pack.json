@@ -13,6 +13,26 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\images\\80fe57b8dd604cdfaee740556e29071d.jpg",
+      "PackagePath": "staticwebassets\\img\\images\\80fe57b8dd604cdfaee740556e29071d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\images\\a014ad9a9cd547289fc0cfd2bf34f0b0.jpg",
+      "PackagePath": "staticwebassets\\img\\images\\a014ad9a9cd547289fc0cfd2bf34f0b0.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\images\\fil01.jpg",
+      "PackagePath": "staticwebassets\\img\\images\\fil01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\images\\fil02.jpg",
+      "PackagePath": "staticwebassets\\img\\images\\fil02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\js\\cargarFoto.js",
+      "PackagePath": "staticwebassets\\js\\cargarFoto.js"
+    },
+    {
       "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

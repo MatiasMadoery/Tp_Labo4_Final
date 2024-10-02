@@ -1,0 +1,6 @@
+﻿@if (TempData["Mensaje"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toast.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">toast.succes('@TempData["Mensaje"]');</script>
+}

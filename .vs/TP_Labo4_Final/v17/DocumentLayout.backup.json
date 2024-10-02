@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Migrations\\20240930133619_Inicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TP_Labo4_Final\\Migrations\\20240930133619_Inicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|c:\\users\\matim\\onedrive\\tup\\segundoa\u00F1o\\segundocuatrimestre\\laboratorioiv\\tpfinal\\tp_labo4_final\\tp_labo4_final\\controllers\\articuloscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73720E8B-5763-4145-A63A-B3BB4F45FF7B}|TP_Labo4_Final\\TP_Labo4_Final.csproj|solutionrelative:tp_labo4_final\\controllers\\articuloscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,14 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20240930133619_Inicial.cs",
-              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Migrations\\20240930133619_Inicial.cs",
-              "RelativeDocumentMoniker": "TP_Labo4_Final\\Migrations\\20240930133619_Inicial.cs",
-              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Migrations\\20240930133619_Inicial.cs",
-              "RelativeToolTip": "TP_Labo4_Final\\Migrations\\20240930133619_Inicial.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Title": "ArticulosController.cs",
+              "DocumentMoniker": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Controllers\\ArticulosController.cs",
+              "RelativeDocumentMoniker": "TP_Labo4_Final\\Controllers\\ArticulosController.cs",
+              "ToolTip": "C:\\Users\\matim\\OneDrive\\TUP\\segundoA\u00F1o\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\Controllers\\ArticulosController.cs",
+              "RelativeToolTip": "TP_Labo4_Final\\Controllers\\ArticulosController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAADwv04AAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T13:36:19.513Z",
+              "WhenOpened": "2024-10-02T15:46:24.215Z",
               "EditorCaption": ""
             }
           ]
