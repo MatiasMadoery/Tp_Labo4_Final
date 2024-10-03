@@ -49,10 +49,14 @@
                 @Html.DisplayFor(modelItem => item.Stock)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Categoria.Nombre) @* Muestra solo el nombre de la categoria *@
+                @Html.DisplayFor(modelItem => item.Categoria!.Nombre) @* Muestra solo el nombre de la categoria *@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NombreImagen)
+                @if (!string.IsNullOrEmpty(item.NombreImagen))
+                    {
+                        <img src="~/img/images/@item.NombreImagen" width="60" asp-append-version="true" />
+                    }
+                               
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -63,3 +67,4 @@
 }
     </tbody>
 </table>
+

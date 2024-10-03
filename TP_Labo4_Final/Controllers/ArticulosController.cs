@@ -53,6 +53,8 @@ namespace TP_Labo4_Final.Controllers
         // GET: Articulos/Create
         public IActionResult Create()
         {
+            // Cargar las categorías disponibles en el ViewBag
+            ViewBag.CategoriaId = new SelectList(_context.Categorias, "Id", "Nombre");
             return View();
         }
 
@@ -61,7 +63,7 @@ namespace TP_Labo4_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Codigo,Descripcion,Precio,Stock,Categoria,NombreImagen")] Articulo articulo)
+        public async Task<IActionResult> Create([Bind("Id,Codigo,Descripcion,Precio,Stock,Categoria")] Articulo articulo)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +74,7 @@ namespace TP_Labo4_Final.Controllers
                     var archivoFoto = archivos[0];
                     if (archivoFoto.Length > 0)
                     {
-                        var pathDestino = Path.Combine(_env.WebRootPath, "img/images");
+                        var pathDestino = Path.Combine(_env.WebRootPath, "img\\images");
 
                         var archivoDestino = Guid.NewGuid().ToString().Replace("-", "");
 
@@ -87,11 +89,15 @@ namespace TP_Labo4_Final.Controllers
                         }
                     }
                 }
-                //fin subir imagen
+                //fin subir imagen               
+
                 _context.Add(articulo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            // Volver a cargar las categorías si hay algún error de validación
+            ViewBag.CategoriaId = new SelectList(_context.Categorias, "Id", "Nombre", articulo.CategoriaId);
             return View(articulo);
         }
 
@@ -129,10 +135,42 @@ namespace TP_Labo4_Final.Controllers
 
             if (ModelState.IsValid)
             {
+                //Para editar imagen
+                var archivos = HttpContext.Request.Form.Files;//Subir archivos de imagen
+                if (archivos != null && archivos.Count > 0)
+                {
+                    var archivoFoto = archivos[0];
+                    if (archivoFoto.Length > 0)
+                    {
+                        var pathDestino = Path.Combine(_env.WebRootPath, "img\\images");
+
+                        var archivoDestino = Guid.NewGuid().ToString().Replace("-", "");
+
+                        var extension = Path.GetExtension(archivoFoto.FileName);
+                        archivoDestino += extension;
+
+
+                        using (var filestream = new FileStream(Path.Combine(pathDestino, archivoDestino), FileMode.Create))
+                        {
+                            archivoFoto.CopyTo(filestream);
+                            if (articulo.NombreImagen != null)
+                            {
+                                var archivoViejo = Path.Combine(pathDestino, articulo.NombreImagen);
+                                if (System.IO.File.Exists(archivoViejo))
+                                {
+                                    System.IO.File.Delete(archivoViejo);
+                                }
+                            }
+                            articulo.NombreImagen = archivoDestino;
+                        }
+                    }
+                }
+                //fin editar imagen
                 try
                 {
                     _context.Update(articulo);
                     await _context.SaveChangesAsync();
+                    TempData["Mensaje"] = "Articulo modificado correctamente!";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
