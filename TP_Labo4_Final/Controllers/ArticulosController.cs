@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TP_Labo4_Final.Models;
+using System.IO;
 
 namespace TP_Labo4_Final.Controllers
 {
@@ -74,6 +75,7 @@ namespace TP_Labo4_Final.Controllers
                     var archivoFoto = archivos[0];
                     if (archivoFoto.Length > 0)
                     {
+                        //Generar nombre aleatoria foto
                         var pathDestino = Path.Combine(_env.WebRootPath, "img\\images");
 
                         var archivoDestino = Guid.NewGuid().ToString().Replace("-", "");
