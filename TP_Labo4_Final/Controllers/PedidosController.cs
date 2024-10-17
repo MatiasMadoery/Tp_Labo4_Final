@@ -21,7 +21,8 @@ namespace TP_Labo4_Final.Controllers
         // GET: Pedidos
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Pedidos.Include(p => p.Cliente);
+            var appDbContext = _context.Pedidos
+                    .Include(p => p.Cliente);
             return View(await appDbContext.ToListAsync());
         }
 
@@ -33,9 +34,14 @@ namespace TP_Labo4_Final.Controllers
                 return NotFound();
             }
 
+
             var pedido = await _context.Pedidos
-                .Include(p => p.Cliente)
+                .Include(p => p.Cliente) // Incluir el cliente
+                .Include(p => p.Articulos) // Incluir los artículos asociados
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+
+           
             if (pedido == null)
             {
                 return NotFound();
@@ -60,10 +66,32 @@ namespace TP_Labo4_Final.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Numero de pedido auto numerico
+                //-----------------------------------------------------------------------------------------------
+                // Obtener el último pedido por número
+                var ultimoPedido = await _context.Pedidos
+                    .OrderByDescending(p => p.Id)
+                    .FirstOrDefaultAsync();
+
+                // Generar el nuevo número incremental
+                if (ultimoPedido != null)
+                {
+                    // Incrementar el número basado en el último pedido
+                    int nuevoNumero = int.Parse(ultimoPedido.Numero!) + 1;
+                    pedido.Numero = nuevoNumero.ToString("D6");  // Formato con ceros a la izquierda
+                }
+                else
+                {
+                    // Establecer el número inicial
+                    pedido.Numero = "000001";
+                }
+                //------------------------------------------------------------------------------------------------
+
                 _context.Add(pedido);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            //Mostrar nombre de cliente
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", pedido.ClienteId);
             return View(pedido);
         }
