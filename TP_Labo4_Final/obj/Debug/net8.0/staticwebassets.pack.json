@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\images\\5ae95516b43c497e84401c630e9bf9b5.jpg",
+      "PackagePath": "staticwebassets\\img\\images\\5ae95516b43c497e84401c630e9bf9b5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\images\\697a4c1785b4486ebb2e3a0c41c432ea.jpg",
+      "PackagePath": "staticwebassets\\img\\images\\697a4c1785b4486ebb2e3a0c41c432ea.jpg"
+    },
+    {
       "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\js\\cargarFoto.js",
       "PackagePath": "staticwebassets\\js\\cargarFoto.js"
     },

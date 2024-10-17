@@ -42,6 +42,7 @@ namespace TP_Labo4_Final.Controllers
             }
 
             var articulo = await _context.Articulos
+                .Include(a => a.Categoria)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (articulo == null)
             {
