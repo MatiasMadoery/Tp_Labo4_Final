@@ -19,14 +19,19 @@ namespace TP_Labo4_Final.Controllers
         }
 
         // GET: Viajantes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             //Incluir lo clientes y sus pedidos en cada viajante
-            var viajantes = await _context.Viajantes
+            var viajantes = from v in _context.Viajantes
                 .Include(v => v.Clientes!)
                 .ThenInclude(c => c.Pedidos!)
-                .ToListAsync();
-            return View(viajantes);
+                select v;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                viajantes = viajantes.Where(v => v.Nombre!.Contains(searchString) || v.Apellido!.Contains(searchString));
+            }
+            return View(await viajantes.ToListAsync());
         }
 
         // GET: Viajantes/Details/5

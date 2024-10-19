@@ -19,11 +19,17 @@ namespace TP_Labo4_Final.Controllers
         }
 
         // GET: Pedidos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var appDbContext = _context.Pedidos
-                    .Include(p => p.Cliente);
-            return View(await appDbContext.ToListAsync());
+            var pedidos = from p in _context.Pedidos
+                    .Include(p => p.Cliente)
+                    select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                pedidos = pedidos.Where(p => p.Numero.Contains(searchString));
+            }
+            return View(await pedidos.ToListAsync());
         }
 
         // GET: Pedidos/Details/5

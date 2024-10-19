@@ -24,13 +24,18 @@ namespace TP_Labo4_Final.Controllers
         }
 
         // GET: Articulos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            //Incluir las categorias en cada articulo.
-            var articulos = await _context.Articulos
-                .Include(v => v.Categoria!)                
-                .ToListAsync();
-            return View(articulos);
+            var articulos = from a in _context.Articulos
+                            .Include(v => v.Categoria)
+                            select a;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articulos = articulos.Where(s => s.Descripcion!.Contains(searchString));
+            }
+
+            return View(await articulos.ToListAsync());
         }
 
         // GET: Articulos/Details/5
