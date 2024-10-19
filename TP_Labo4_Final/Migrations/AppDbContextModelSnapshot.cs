@@ -42,11 +42,8 @@ namespace TP_Labo4_Final.Migrations
                     b.Property<string>("NombreImagen")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PedidoId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Precio")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
@@ -55,9 +52,28 @@ namespace TP_Labo4_Final.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.HasIndex("PedidoId");
-
                     b.ToTable("Articulos");
+                });
+
+            modelBuilder.Entity("TP_Labo4_Final.Models.ArticuloCantidad", b =>
+                {
+                    b.Property<int>("PedidoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArticuloId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("PedidoId", "ArticuloId");
+
+                    b.HasIndex("ArticuloId");
+
+                    b.ToTable("ArticuloCantidades");
                 });
 
             modelBuilder.Entity("TP_Labo4_Final.Models.Categoria", b =>
@@ -217,11 +233,26 @@ namespace TP_Labo4_Final.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TP_Labo4_Final.Models.Pedido", null)
-                        .WithMany("Articulos")
-                        .HasForeignKey("PedidoId");
-
                     b.Navigation("Categoria");
+                });
+
+            modelBuilder.Entity("TP_Labo4_Final.Models.ArticuloCantidad", b =>
+                {
+                    b.HasOne("TP_Labo4_Final.Models.Articulo", "Articulo")
+                        .WithMany("ArticulosCantidades")
+                        .HasForeignKey("ArticuloId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TP_Labo4_Final.Models.Pedido", "Pedido")
+                        .WithMany("ArticulosCantidades")
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Articulo");
+
+                    b.Navigation("Pedido");
                 });
 
             modelBuilder.Entity("TP_Labo4_Final.Models.Cliente", b =>
@@ -246,6 +277,11 @@ namespace TP_Labo4_Final.Migrations
                     b.Navigation("Cliente");
                 });
 
+            modelBuilder.Entity("TP_Labo4_Final.Models.Articulo", b =>
+                {
+                    b.Navigation("ArticulosCantidades");
+                });
+
             modelBuilder.Entity("TP_Labo4_Final.Models.Categoria", b =>
                 {
                     b.Navigation("Articulos");
@@ -258,7 +294,7 @@ namespace TP_Labo4_Final.Migrations
 
             modelBuilder.Entity("TP_Labo4_Final.Models.Pedido", b =>
                 {
-                    b.Navigation("Articulos");
+                    b.Navigation("ArticulosCantidades");
                 });
 
             modelBuilder.Entity("TP_Labo4_Final.Models.Viajante", b =>

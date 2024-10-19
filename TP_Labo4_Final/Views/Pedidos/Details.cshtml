@@ -1,4 +1,4 @@
-﻿@model TP_Labo4_Final.Models.Pedido
+﻿@* @model TP_Labo4_Final.Models.Pedido
 
 @{
     ViewData["Title"] = "Details";
@@ -34,7 +34,7 @@
 </div>
 
 <h4>Artículos en el Pedido</h4>
-<table class="table">
+@* <table class="table">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.Articulos!.First().Codigo)</th>
@@ -52,6 +52,66 @@
             </tr>
         }
     </tbody>
+</table> *@
+
+@* <div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a> |
+    <a asp-action="Delete" asp-route-id="@Model?.Id">Eliminar</a>
+</div> *@ 
+@model TP_Labo4_Final.Models.Pedido
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalle</h1>
+<div>
+    <h4>Pedido</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class="col-sm-2">
+            Cliente
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cliente!.Nombre) @Html.DisplayFor(model => model.Cliente!.Apellido)
+        </dd>
+    </dl>
+</div>
+
+<h4>Artículos en el Pedido</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ArticulosCantidades!.First().Articulo!.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.ArticulosCantidades!.First().Articulo!.Descripcion)</th>
+            <th>@Html.DisplayNameFor(model => model.ArticulosCantidades!.First().Articulo!.Precio)</th>
+            <th>@Html.DisplayNameFor(model => model.ArticulosCantidades!.First().Cantidad)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var articuloCantidad in Model.ArticulosCantidades!)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => articuloCantidad.Articulo!.Codigo)</td>
+                <td>@Html.DisplayFor(modelItem => articuloCantidad.Articulo!.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => articuloCantidad.Articulo!.Precio)</td>
+                <td>@Html.DisplayFor(modelItem => articuloCantidad.Cantidad)</td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 <div>
@@ -59,4 +119,5 @@
     <a asp-action="Index">Volver a la lista</a> |
     <a asp-action="Delete" asp-route-id="@Model?.Id">Eliminar</a>
 </div>
+
 

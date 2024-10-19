@@ -50,6 +50,30 @@ namespace TP_Labo4_Final.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Articulos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Codigo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Stock = table.Column<int>(type: "int", nullable: false),
+                    NombreImagen = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CategoriaId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Articulos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Articulos_Categorias_CategoriaId",
+                        column: x => x.CategoriaId,
+                        principalTable: "Categorias",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Clientes",
                 columns: table => new
                 {
@@ -103,44 +127,40 @@ namespace TP_Labo4_Final.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Articulos",
+                name: "ArticuloCantidades",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Codigo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Precio = table.Column<double>(type: "float", nullable: false),
-                    Stock = table.Column<int>(type: "int", nullable: false),
-                    NombreImagen = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CategoriaId = table.Column<int>(type: "int", nullable: false),
-                    PedidoId = table.Column<int>(type: "int", nullable: true)
+                    ArticuloId = table.Column<int>(type: "int", nullable: false),
+                    PedidoId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Cantidad = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Articulos", x => x.Id);
+                    table.PrimaryKey("PK_ArticuloCantidades", x => new { x.PedidoId, x.ArticuloId });
                     table.ForeignKey(
-                        name: "FK_Articulos_Categorias_CategoriaId",
-                        column: x => x.CategoriaId,
-                        principalTable: "Categorias",
+                        name: "FK_ArticuloCantidades_Articulos_ArticuloId",
+                        column: x => x.ArticuloId,
+                        principalTable: "Articulos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Articulos_Pedidos_PedidoId",
+                        name: "FK_ArticuloCantidades_Pedidos_PedidoId",
                         column: x => x.PedidoId,
                         principalTable: "Pedidos",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ArticuloCantidades_ArticuloId",
+                table: "ArticuloCantidades",
+                column: "ArticuloId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Articulos_CategoriaId",
                 table: "Articulos",
                 column: "CategoriaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Articulos_PedidoId",
-                table: "Articulos",
-                column: "PedidoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_ViajanteId",
@@ -157,13 +177,16 @@ namespace TP_Labo4_Final.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "ArticuloCantidades");
+
+            migrationBuilder.DropTable(
                 name: "Articulos");
 
             migrationBuilder.DropTable(
-                name: "Categorias");
+                name: "Pedidos");
 
             migrationBuilder.DropTable(
-                name: "Pedidos");
+                name: "Categorias");
 
             migrationBuilder.DropTable(
                 name: "Clientes");

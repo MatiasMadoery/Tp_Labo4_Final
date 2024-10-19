@@ -37,7 +37,8 @@ namespace TP_Labo4_Final.Controllers
 
             var pedido = await _context.Pedidos
                 .Include(p => p.Cliente) // Incluir el cliente
-                .Include(p => p.Articulos) // Incluir los artículos asociados
+                .Include(p => p.ArticulosCantidades!) // Incluir los artículos asociados
+                .ThenInclude(ac => ac.Articulo)
                 .FirstOrDefaultAsync(m => m.Id == id);
 
 
@@ -54,6 +55,7 @@ namespace TP_Labo4_Final.Controllers
         public IActionResult Create()
         {
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id");
+            ViewData["ArticuloId"] = new SelectList(_context.Articulos, "Id", "Descripcion");
             return View();
         }
 
@@ -62,7 +64,7 @@ namespace TP_Labo4_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Numero,Fecha,ClienteId")] Pedido pedido)
+        public async Task<IActionResult> Create([Bind("Id,Numero,Fecha,ClienteId")] Pedido pedido, int[] articuloIds, int[] cantidades)
         {
             if (ModelState.IsValid)
             {
@@ -89,10 +91,24 @@ namespace TP_Labo4_Final.Controllers
 
                 _context.Add(pedido);
                 await _context.SaveChangesAsync();
+
+                for (int i = 0; i < articuloIds.Length; i++)
+                {
+                    var articuloCantidad = new ArticuloCantidad
+                    {
+                        PedidoId = pedido.Id,
+                        ArticuloId = articuloIds[i],
+                        Cantidad = cantidades[i]
+                    };
+                    _context.Add(articuloCantidad);
+                }
+
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             //Mostrar nombre de cliente
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", pedido.ClienteId);
+            ViewData["ArticuloId"] = new SelectList(_context.Articulos, "Id", "Descripcion");
             return View(pedido);
         }
 
@@ -110,6 +126,7 @@ namespace TP_Labo4_Final.Controllers
                 return NotFound();
             }
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", pedido.ClienteId);
+            ViewData["ArticuloId"] = new SelectList(_context.Articulos, "Id", "Descripcion");
             return View(pedido);
         }
 
@@ -118,7 +135,7 @@ namespace TP_Labo4_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Numero,Fecha,ClienteId")] Pedido pedido)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Numero,Fecha,ClienteId")] Pedido pedido, int[] articuloIds, int[] cantidades)
         {
             if (id != pedido.Id)
             {
@@ -130,6 +147,21 @@ namespace TP_Labo4_Final.Controllers
                 try
                 {
                     _context.Update(pedido);
+                    await _context.SaveChangesAsync();
+                    // Actualizar artículos
+                    var existingArticuloCantidades = _context.ArticuloCantidades.Where(ac => ac.PedidoId == id);
+                    _context.ArticuloCantidades.RemoveRange(existingArticuloCantidades);
+                    for (int i = 0; i < articuloIds.Length; i++)
+                    {
+                        var articuloCantidad = new ArticuloCantidad
+                        {
+                            PedidoId = pedido.Id,
+                            ArticuloId = articuloIds[i],
+                            Cantidad = cantidades[i]
+                        };
+                        _context.Add(articuloCantidad);
+                    }
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -146,6 +178,7 @@ namespace TP_Labo4_Final.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", pedido.ClienteId);
+            ViewData["ArticuloId"] = new SelectList(_context.Articulos, "Id", "Descripcion");
             return View(pedido);
         }
 

@@ -65,7 +65,7 @@ namespace TP_Labo4_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Codigo,Descripcion,Precio,Stock,Categoria")] Articulo articulo)
+        public async Task<IActionResult> Create([Bind("Id,Codigo,Descripcion,Precio,Stock,NombreImagen,CategoriaId")] Articulo articulo)
         {
             if (ModelState.IsValid)
             {

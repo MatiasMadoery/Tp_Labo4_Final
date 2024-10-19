@@ -1,6 +1,97 @@
 ﻿@model TP_Labo4_Final.Models.Pedido
-
 @{
+    ViewData["Title"] = "Create";
+}
+<h1>Create</h1>
+<h4>Pedido</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClienteId" class="control-label"></label>
+                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+
+            <!-- Nueva sección para añadir artículos y cantidades -->
+            <div class="form-group">
+                <label>Artículos y Cantidades</label>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Artículo</th>
+                            <th>Cantidad</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="articulos-container">
+                        <tr>
+                            <td>
+                                <select name="articuloIds" class="form-control" asp-items="ViewBag.ArticuloId"></select>
+                            </td>
+                            <td>
+                                <input type="number" name="cantidades" class="form-control" />
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger remove-item">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary" id="add-item">Añadir Artículo</button>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#add-item').click(function () {
+                var newRow = `<tr>
+                                <td>
+                                    <select name="articuloIds" class="form-control" asp-items="ViewBag.ArticuloId"></select>
+                                </td>
+                                <td>
+                                    <input type="number" name="cantidades" class="form-control" />
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger remove-item">Eliminar</button>
+                                </td>
+                              </tr>`;
+                $('#articulos-container').append(newRow);
+            });
+
+            $(document).on('click', '.remove-item', function () {
+                $(this).closest('tr').remove();
+            });
+        });
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+@* @{
     ViewData["Title"] = "Create";
 }
 
@@ -40,3 +131,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+ *@

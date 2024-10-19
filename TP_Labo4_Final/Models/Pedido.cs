@@ -7,7 +7,7 @@ namespace TP_Labo4_Final.Models
         public int Id { get; set; }
         public string? Numero { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{dd/MM/yyyy}")]
         public DateTime Fecha { get; set; }
 
 
@@ -17,7 +17,7 @@ namespace TP_Labo4_Final.Models
         public Cliente? Cliente { get; set; }      
 
         //Relacion uno a muchos con articulos        
-        public ICollection<Articulo>? Articulos { get; set; }    
+        public ICollection<ArticuloCantidad>? ArticulosCantidades { get; set; }    
         
 
     }

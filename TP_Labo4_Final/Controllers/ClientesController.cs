@@ -21,7 +21,11 @@ namespace TP_Labo4_Final.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clientes.ToListAsync());
+            var clientes = await _context.Clientes                
+                .Include(c => c.Viajante)
+                .ToListAsync();
+            return View(clientes);
+
         }
 
         // GET: Clientes/Details/5
@@ -33,6 +37,7 @@ namespace TP_Labo4_Final.Controllers
             }
 
             var cliente = await _context.Clientes
+                .Include (c => c.Viajante)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (cliente == null)
             {
@@ -45,6 +50,7 @@ namespace TP_Labo4_Final.Controllers
         // GET: Clientes/Create
         public IActionResult Create()
         {
+            ViewData["ViajanteId"] = new SelectList(_context.Viajantes, "Id", "Nombre");
             return View();
         }
 
@@ -53,14 +59,26 @@ namespace TP_Labo4_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido,Cuit,Direccion,Altura,Departamento,Piso,Localidad,Provincia,Pais,Telefono,Email,Estado")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellido,Cuit,Direccion,Altura,Departamento,Piso,Localidad,Provincia,Pais,Telefono,Email,Estado,ViajanteId")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
+                
+                // Verificar que el viajante existe
+                var viajante = await _context.Viajantes.FindAsync(cliente.ViajanteId);
+
+                if (viajante == null)
+                {
+                    ModelState.AddModelError("ViajanteId", "El viajante seleccionado no existe.");                    
+                    ViewData["ViajanteId"] = new SelectList(_context.Viajantes, "Id", "Nombre", cliente.ViajanteId);
+                    return View(cliente);
+                }
+
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ViajanteId"] = new SelectList(_context.Viajantes, "Id", "Nombre");
             return View(cliente);
         }
 
@@ -77,6 +95,7 @@ namespace TP_Labo4_Final.Controllers
             {
                 return NotFound();
             }
+            ViewData["ViajanteId"] = new SelectList(_context.Viajantes, "Id", "Nombre");
             return View(cliente);
         }
 
@@ -85,7 +104,7 @@ namespace TP_Labo4_Final.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido,Cuit,Direccion,Altura,Departamento,Piso,Localidad,Provincia,Pais,Telefono,Email,Estado")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellido,Cuit,Direccion,Altura,Departamento,Piso,Localidad,Provincia,Pais,Telefono,Email,Estado,ViajanteId")] Cliente cliente)
         {
             if (id != cliente.Id)
             {
@@ -96,6 +115,12 @@ namespace TP_Labo4_Final.Controllers
             {
                 try
                 {
+                    var viajante = await _context.Viajantes.FindAsync(cliente.ViajanteId);
+                    if (viajante == null)
+                    {
+                        ModelState.AddModelError("ViajanteId", "El viajante seleccionado no existe.");
+                        ViewData["ViajanteId"] = new SelectList(_context.Viajantes, "Id", "Nombre", cliente.ViajanteId);
+                    }
                     _context.Update(cliente);
                     await _context.SaveChangesAsync();
                 }
@@ -112,6 +137,9 @@ namespace TP_Labo4_Final.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["ViajanteId"] = new SelectList(_context.Viajantes, "Id", "Nombre", cliente.ViajanteId);
+           
             return View(cliente);
         }
 
