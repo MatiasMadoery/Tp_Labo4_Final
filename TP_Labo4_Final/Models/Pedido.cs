@@ -7,7 +7,7 @@ namespace TP_Labo4_Final.Models
         public int Id { get; set; }
         public string? Numero { get; set; }
 
-        [DisplayFormat(DataFormatString = "{dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Fecha { get; set; }
 
 

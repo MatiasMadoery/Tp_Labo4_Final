@@ -24,5 +24,8 @@
         //Relacion uno a muchos con pedidos
         public ICollection<Pedido> ?Pedidos { get; set; }
 
+        //Mostrar nombre completo
+        public string NombreCompleto => $"{Nombre} {Apellido}";
+
     }
 }

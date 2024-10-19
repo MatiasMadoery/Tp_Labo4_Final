@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Cd1zU0nVHyWAi1Faw3LYTe4M3s50oox2twlSmrukNhI=",
+  "Hash": "rzI8Fb150LkashCQX0ivlilKUBTVTcore7K1+fKZFfM=",
   "Source": "TP_Labo4_Final",
   "BasePath": "_content/TP_Labo4_Final",
   "Mode": "Default",
@@ -148,6 +148,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\images\\fdbcb7a9cc8147daa869ae0ae146ca6c.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\js\\cargarArticlos.js",
+      "SourceId": "TP_Labo4_Final",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\",
+      "BasePath": "_content/TP_Labo4_Final",
+      "RelativePath": "js/cargarArticlos.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\cargarArticlos.js"
     },
     {
       "Identity": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\js\\cargarFoto.js",

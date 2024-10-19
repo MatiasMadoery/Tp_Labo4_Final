@@ -53,11 +53,33 @@ namespace TP_Labo4_Final.Controllers
 
         // GET: Pedidos/Create
         public IActionResult Create()
-        {
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id");
+        {            
+                // Generar el número de pedido aquí
+                var ultimoPedido = _context.Pedidos.OrderByDescending(p => p.Id).FirstOrDefault();
+                string numeroPedido = ultimoPedido != null ? (int.Parse(ultimoPedido.Numero!) + 1).ToString("D6") : "000001";
+
+                // Crear un nuevo pedido con el número generado
+                var pedido = new Pedido
+                {
+                    Numero = numeroPedido
+                };
+
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "NombreCompleto");
             ViewData["ArticuloId"] = new SelectList(_context.Articulos, "Id", "Descripcion");
             return View();
         }
+
+
+
+        //Metodo http para con Json y Ajax poder acceder al listado de articulos en tiempo real. 
+        [HttpGet]
+        public IActionResult GetArticulos()
+        {
+            var articulos = _context.Articulos.Select(a => new { a.Id, a.Descripcion }).ToList();
+            return Json(articulos);
+        }
+
+
 
         // POST: Pedidos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -107,7 +129,7 @@ namespace TP_Labo4_Final.Controllers
                 return RedirectToAction(nameof(Index));
             }
             //Mostrar nombre de cliente
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", pedido.ClienteId);
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "NombreCompleto", pedido.ClienteId);
             ViewData["ArticuloId"] = new SelectList(_context.Articulos, "Id", "Descripcion");
             return View(pedido);
         }
@@ -125,7 +147,7 @@ namespace TP_Labo4_Final.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", pedido.ClienteId);
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "NombreCompleto", pedido.ClienteId);
             ViewData["ArticuloId"] = new SelectList(_context.Articulos, "Id", "Descripcion");
             return View(pedido);
         }
@@ -177,7 +199,7 @@ namespace TP_Labo4_Final.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", pedido.ClienteId);
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "NombreCompleto", pedido.ClienteId);
             ViewData["ArticuloId"] = new SelectList(_context.Articulos, "Id", "Descripcion");
             return View(pedido);
         }
