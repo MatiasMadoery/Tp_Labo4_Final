@@ -27,7 +27,7 @@ namespace TP_Labo4_Final.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                pedidos = pedidos.Where(p => p.Numero.Contains(searchString));
+                pedidos = pedidos.Where(p => p.Numero!.Contains(searchString));
             }
             return View(await pedidos.ToListAsync());
         }

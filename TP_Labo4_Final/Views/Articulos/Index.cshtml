@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TP_Labo4_Final.Models.Articulo>
+﻿@* @model IEnumerable<TP_Labo4_Final.Models.Articulo>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,6 +9,12 @@
     <div class="row mb-2">
         <div class="col-md-8">
             <input type="text" name="searchString" class="form-control" placeholder="Buscar artículos..." />
+        </div>
+        <div class="form-group mb-2">
+            <label for="categoriaId" class="mr-2">Filtrar por categoría:</label>
+            <select id="categoriaId" name="categoriaId" class="form-control mr-2" asp-items="ViewBag.CategoriaId">
+                <option value="">Todas</option>
+            </select>
         </div>
         <div class="col-md-4">
             <button type="submit" class="btn btn-primary">Buscar</button>
@@ -53,5 +59,74 @@
         }
     </tbody>
 </table>
+ *@
 
+@model IEnumerable<TP_Labo4_Final.Models.Articulo>
+
+@{
+    ViewData["Title"] = "Artículos";
+}
+
+<h1>Artículos</h1>
+
+<form method="get" id="filter-form">
+    <div class="row mb-2">
+        <div class="col-md-8">
+            <input type="text" name="searchString" class="form-control" placeholder="Buscar artículos..." value="@ViewData["searchString"]" />
+        </div>     
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <label for="categoriaId" class="mr-2">Filtrar por categoría:</label>
+        <select id="categoriaId" name="categoriaId" class="form-control mr-2" asp-items="ViewBag.CategoriaId" onchange="document.getElementById('filter-form').submit();">
+            <option value="">Todas</option>
+        </select>
+    </div>
+</form>
+<p>
+    <a asp-action="Create">Cargar nuevo artículo</a>
+</p>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning" role="alert">
+        No se encontraron resultados para tu búsqueda.
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+            <th>@Html.DisplayNameFor(model => model.Precio)</th>
+            <th>@Html.DisplayNameFor(model => model.Categoria)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Codigo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+                <td>@Html.DisplayFor(modelItem => item.Categoria!.Nombre)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        document.getElementById('categoriaId').addEventListener('change', function () {
+            document.getElementById('filter-form').submit();
+        });
+    </script>
+}
 

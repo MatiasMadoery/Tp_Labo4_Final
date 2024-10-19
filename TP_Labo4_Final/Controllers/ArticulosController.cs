@@ -24,13 +24,21 @@ namespace TP_Labo4_Final.Controllers
         }
 
         // GET: Articulos
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(int? categoriaId,string searchString)
         {
+            var categorias = _context.Categorias;
+            ViewData["CategoriaId"] = new SelectList(categorias, "Id", "Nombre");
+
             var articulos = from a in _context.Articulos
-                            .Include(v => v.Categoria)
+                            .Include(a => a.Categoria)
                             select a;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (categoriaId.HasValue && categoriaId.Value > 0)
+            {
+                articulos = articulos.Where(a => a.CategoriaId == categoriaId);
+            }
+
+                if (!String.IsNullOrEmpty(searchString))
             {
                 articulos = articulos.Where(s => s.Descripcion!.Contains(searchString));
             }
