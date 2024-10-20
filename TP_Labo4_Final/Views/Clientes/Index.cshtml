@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<TP_Labo4_Final.Models.Cliente>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Clientes";
 }
 
 <h1>Clientes</h1>
+
 <form method="get">
     <div class="row mb-2">
         <div class="col-md-8">
@@ -15,18 +16,15 @@
         </div>
     </div>
 </form>
+<br />
 <p>
-    <a asp-action="Create">Cargar nuevo cliente</a>
+    <a asp-action="Create" class="btn btn-success">Cargar nuevo cliente</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Apellido)
-            </th>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
             <th></th>
         </tr>
     </thead>
@@ -34,12 +32,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Apellido)
-                </td>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id">Detalle</a>
                 </td>
@@ -47,3 +41,14 @@
         }
     </tbody>
 </table>
+<hr />
+<form asp-controller="ImportarEx" asp-action="Importar" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="file" style="font-size: 1.30em">Importar clientes desde archivo Excel:</label>
+        <input type="file" name="file" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Importar</button>
+</form>
+<hr />
+
