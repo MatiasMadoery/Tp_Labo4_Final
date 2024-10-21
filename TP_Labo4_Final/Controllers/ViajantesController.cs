@@ -19,7 +19,7 @@ namespace TP_Labo4_Final.Controllers
         }
 
         // GET: Viajantes
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int pagina = 1, int tamanioPagina = 5)
         {
             //Incluir lo clientes y sus pedidos en cada viajante
             var viajantes = from v in _context.Viajantes
@@ -27,11 +27,28 @@ namespace TP_Labo4_Final.Controllers
                 .ThenInclude(c => c.Pedidos!)
                 select v;
 
+            // Filtrar por el texto de búsqueda si se proporciona
             if (!String.IsNullOrEmpty(searchString))
             {
                 viajantes = viajantes.Where(v => v.Nombre!.Contains(searchString) || v.Apellido!.Contains(searchString));
             }
-            return View(await viajantes.ToListAsync());
+
+            // Obtener el total de Viajantes (para calcular las páginas)
+            var totalViajantes = await viajantes.CountAsync();
+
+            // Aplicar paginación (omitir los registros anteriores y tomar solo los de la página actual)
+            var viajantesPaginados = await viajantes
+                                         .Skip((pagina - 1) * tamanioPagina)
+                                         .Take(tamanioPagina)
+                                         .ToListAsync();
+
+            // Crear el paginador con la lista paginada
+            var paginador = new Paginador<Viajante>(viajantesPaginados, totalViajantes, pagina, tamanioPagina);
+
+            //Para mantener el valor del campo de búsqueda cuando el usuario cambie de página
+            ViewData["searchString"] = searchString;
+
+            return View(paginador);
         }
 
         // GET: Viajantes/Details/5

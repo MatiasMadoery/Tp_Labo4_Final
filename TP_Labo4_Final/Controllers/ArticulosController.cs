@@ -24,7 +24,7 @@ namespace TP_Labo4_Final.Controllers
         }
 
         // GET: Articulos
-        public async Task<IActionResult> Index(int? categoriaId,string searchString)
+        public async Task<IActionResult> Index(int? categoriaId,string searchString, int pagina = 1, int tamanioPagina = 5)
         {
             var categorias = _context.Categorias;
             ViewData["CategoriaId"] = new SelectList(categorias, "Id", "Nombre");
@@ -43,7 +43,21 @@ namespace TP_Labo4_Final.Controllers
                 articulos = articulos.Where(s => s.Descripcion!.Contains(searchString));
             }
 
-            return View(await articulos.ToListAsync());
+            // Obtener el total de clientes (para calcular las páginas)
+            var totalArticulos = await articulos.CountAsync();
+
+            // Aplicar paginación (omitir los registros anteriores y tomar solo los de la página actual)
+            var articulosPaginados = await articulos
+                                         .Skip((pagina - 1) * tamanioPagina)
+                                         .Take(tamanioPagina)
+                                         .ToListAsync();
+
+            // Crear el paginador con la lista paginada
+            var paginador = new Paginador<Articulo>(articulosPaginados, totalArticulos, pagina, tamanioPagina);
+
+            //Para mantener el valor del campo de búsqueda cuando el usuario cambie de página
+            ViewData["searchString"] = searchString;
+            return View(paginador);
         }
 
         // GET: Articulos/Details/5

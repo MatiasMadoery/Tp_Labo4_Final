@@ -1,5 +1,6 @@
-﻿@model IEnumerable<TP_Labo4_Final.Models.Cliente>
-
+﻿@* @model IEnumerable<TP_Labo4_Final.Models.Cliente> *@
+@* //Se cambia la referencia del model para poder usar el paginador *@
+@model Paginador<TP_Labo4_Final.Models.Cliente>
 @{
     ViewData["Title"] = "Clientes";
 }
@@ -9,7 +10,7 @@
 <form method="get">
     <div class="row mb-2">
         <div class="col-md-8">
-            <input type="text" name="searchString" class="form-control" placeholder="Buscar cliente..." />
+            <input type="text" name="searchString" class="form-control" value="@ViewData["searchString"]" placeholder="Buscar cliente..." />
         </div>
         <div class="col-md-4">
             <button type="submit" class="btn btn-primary">Buscar</button>
@@ -23,13 +24,13 @@
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
-            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+            <th>@Html.DisplayNameFor(model => model.Elementos.First().Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Elementos.First().Apellido)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Elementos)
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
@@ -41,6 +42,21 @@
         }
     </tbody>
 </table>
+@* Paginador *@
+<div>
+    @if (Model.HayPaginaAnterior)
+    {
+        <a asp-action="Index" asp-route-pagina="@(Model.PaginaActual - 1)" asp-route-searchString="@ViewData["searchString"]">Anterior</a>
+    }
+
+    Página @Model.PaginaActual de @Model.TotalPaginas
+
+    @if (Model.HayPaginaSiguiente)
+    {
+        <a asp-action="Index" asp-route-pagina="@(Model.PaginaActual + 1)" asp-route-searchString="@ViewData["searchString"]">Siguiente</a>
+    }
+</div>
+
 <hr />
 <form asp-controller="ImportarEx" asp-action="Importar" method="post" enctype="multipart/form-data">
     <div class="form-group">

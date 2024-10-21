@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TP_Labo4_Final.Models;
 
+
 namespace TP_Labo4_Final.Controllers
 {
     public class ClientesController : Controller
@@ -18,20 +19,38 @@ namespace TP_Labo4_Final.Controllers
             _context = context;
         }
 
-        // GET: Clientes
-        public async Task<IActionResult> Index(string searchString)
-        {
-            var clientes = from c in _context.Clientes                
-                .Include(c => c.Viajante)
-                select c;
 
+        // GET: Clientes
+        public async Task<IActionResult> Index(string searchString, int pagina = 1, int tamanioPagina = 5)
+        {
+            // Obtener los clientes con su respectivo viajante
+            var clientes = from c in _context.Clientes
+                           .Include(c => c.Viajante)
+                           select c;
+
+            // Filtrar por el texto de búsqueda si se proporciona
             if (!String.IsNullOrEmpty(searchString))
             {
                 clientes = clientes.Where(s => s.Apellido!.Contains(searchString) || s.Nombre!.Contains(searchString));
             }
-            return View(await clientes.ToListAsync());
 
+            // Obtener el total de clientes (para calcular las páginas)
+            var totalClientes = await clientes.CountAsync();
+
+            // Aplicar paginación (omitir los registros anteriores y tomar solo los de la página actual)
+            var clientesPaginados = await clientes
+                                         .Skip((pagina - 1) * tamanioPagina)
+                                         .Take(tamanioPagina)
+                                         .ToListAsync();
+
+            // Crear el paginador con la lista paginada
+            var paginador = new Paginador<Cliente>(clientesPaginados, totalClientes, pagina, tamanioPagina);
+
+            //Para mantener el valor del campo de búsqueda cuando el usuario cambie de página
+            ViewData["searchString"] = searchString;
+            return View(paginador);
         }
+
 
         // GET: Clientes/Details/5
         public async Task<IActionResult> Details(int? id)

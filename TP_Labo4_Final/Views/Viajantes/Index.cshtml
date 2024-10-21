@@ -1,5 +1,6 @@
-﻿@model IEnumerable<TP_Labo4_Final.Models.Viajante>
-
+﻿@* @model IEnumerable<TP_Labo4_Final.Models.Viajante> *@
+@* //Se cambia la referencia del model para poder usar el paginador *@
+@model Paginador<TP_Labo4_Final.Models.Viajante>
 @{
     ViewData["Title"] = "Index";
 }
@@ -8,7 +9,7 @@
 <form method="get">
     <div class="row mb-2">
         <div class="col-md-8">
-            <input type="text" name="searchString" class="form-control" placeholder="Buscar viajante..." />
+            <input type="text" name="searchString" class="form-control" value="@ViewData["searchString"]" placeholder="Buscar viajante..." />
         </div>
         <div class="col-md-4">
             <button type="submit" class="btn btn-primary">Buscar</button>
@@ -16,22 +17,22 @@
     </div>
 </form>
 <p>
-    <a asp-action="Create">Cargar nuevo viajante</a>
+    <a asp-action="Create" class="btn btn-success">Cargar nuevo viajante</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                @Html.DisplayNameFor(model => model.Elementos.First().Nombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Apellido)
+                @Html.DisplayNameFor(model => model.Elementos.First().Apellido)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Elementos)
         {
             <tr>
                 <td>
@@ -47,3 +48,17 @@
         }
     </tbody>
 </table>
+@* Paginador *@
+<div>
+    @if (Model.HayPaginaAnterior)
+    {
+        <a asp-action="Index" asp-route-pagina="@(Model.PaginaActual - 1)" asp-route-searchString="@ViewData["searchString"]">Anterior</a>
+    }
+
+    Página @Model.PaginaActual de @Model.TotalPaginas
+
+    @if (Model.HayPaginaSiguiente)
+    {
+        <a asp-action="Index" asp-route-pagina="@(Model.PaginaActual + 1)" asp-route-searchString="@ViewData["searchString"]">Siguiente</a>
+    }
+</div>

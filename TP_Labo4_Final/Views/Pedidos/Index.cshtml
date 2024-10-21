@@ -1,5 +1,6 @@
-﻿@model IEnumerable<TP_Labo4_Final.Models.Pedido>
-
+﻿@* @model IEnumerable<TP_Labo4_Final.Models.Pedido> *@
+@* //Se cambia la referencia del model para poder usar el paginador *@
+@model Paginador<TP_Labo4_Final.Models.Pedido>
 @{
     ViewData["Title"] = "Index";
 }
@@ -8,7 +9,7 @@
 <form method="get">
     <div class="row mb-2">
         <div class="col-md-8">
-            <input type="text" name="searchString" class="form-control" placeholder="Buscar numero de pedido..." />
+            <input type="text" name="searchString" class="form-control" value="@ViewData["searchString"]" placeholder="Buscar pedido..." />
         </div>
         <div class="col-md-4">
             <button type="submit" class="btn btn-primary">Buscar</button>
@@ -16,25 +17,25 @@
     </div>
 </form>
 <p>
-    <a asp-action="Create">Cargar nuevo pedido</a>
+    <a asp-action="Create" class="btn btn-success">Cargar nuevo pedido</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Numero)
+                @Html.DisplayNameFor(model => model.Elementos.First().Numero)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Fecha)
+                @Html.DisplayNameFor(model => model.Elementos.First().Fecha)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClienteId)
+                @Html.DisplayNameFor(model => model.Elementos.First().ClienteId)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Elementos) {
         <tr>
             <td>
                     @Html.DisplayFor(modelItem => item.Numero)
@@ -52,3 +53,17 @@
 }
     </tbody>
 </table>
+@* Paginador *@
+<div>
+    @if (Model.HayPaginaAnterior)
+    {
+        <a asp-action="Index" asp-route-pagina="@(Model.PaginaActual - 1)" asp-route-searchString="@ViewData["searchString"]">Anterior</a>
+    }
+
+    Página @Model.PaginaActual de @Model.TotalPaginas
+
+    @if (Model.HayPaginaSiguiente)
+    {
+        <a asp-action="Index" asp-route-pagina="@(Model.PaginaActual + 1)" asp-route-searchString="@ViewData["searchString"]">Siguiente</a>
+    }
+</div>

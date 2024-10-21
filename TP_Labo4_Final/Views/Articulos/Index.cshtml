@@ -1,68 +1,6 @@
-﻿@* @model IEnumerable<TP_Labo4_Final.Models.Articulo>
-
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h1>Articulos</h1>
-<form method="get">
-    <div class="row mb-2">
-        <div class="col-md-8">
-            <input type="text" name="searchString" class="form-control" placeholder="Buscar artículos..." />
-        </div>
-        <div class="form-group mb-2">
-            <label for="categoriaId" class="mr-2">Filtrar por categoría:</label>
-            <select id="categoriaId" name="categoriaId" class="form-control mr-2" asp-items="ViewBag.CategoriaId">
-                <option value="">Todas</option>
-            </select>
-        </div>
-        <div class="col-md-4">
-            <button type="submit" class="btn btn-primary">Buscar</button>
-        </div>
-    </div>
-</form>
-<p>
-    <a asp-action="Create">Cargar nuevo articulo</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Codigo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Codigo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Precio)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalle</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
- *@
-
-@model IEnumerable<TP_Labo4_Final.Models.Articulo>
-
+﻿@* Se modifica el model para utilizar el paginador *@
+@* @model IEnumerable<TP_Labo4_Final.Models.Articulo> *@
+@model Paginador<TP_Labo4_Final.Models.Articulo>
 @{
     ViewData["Title"] = "Artículos";
 }
@@ -89,25 +27,25 @@
     <a asp-action="Create">Cargar nuevo artículo</a>
 </p>
 
-@if (!Model.Any())
+@* @if (!Model.Any())
 {
     <div class="alert alert-warning" role="alert">
         No se encontraron resultados para tu búsqueda.
     </div>
-}
+} *@
 
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
-            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
-            <th>@Html.DisplayNameFor(model => model.Precio)</th>
-            <th>@Html.DisplayNameFor(model => model.Categoria)</th>
+            <th>@Html.DisplayNameFor(model => model.Elementos.First().Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.Elementos.First().Descripcion)</th>
+            <th>@Html.DisplayNameFor(model => model.Elementos.First().Precio)</th>
+            <th>@Html.DisplayNameFor(model => model.Elementos.First().Categoria)</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Elementos)
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Codigo)</td>
@@ -121,6 +59,20 @@
         }
     </tbody>
 </table>
+@* Paginador *@
+<div>
+    @if (Model.HayPaginaAnterior)
+    {
+        <a asp-action="Index" asp-route-pagina="@(Model.PaginaActual - 1)" asp-route-searchString="@ViewData["searchString"]">Anterior</a>
+    }
+
+    Página @Model.PaginaActual de @Model.TotalPaginas
+
+    @if (Model.HayPaginaSiguiente)
+    {
+        <a asp-action="Index" asp-route-pagina="@(Model.PaginaActual + 1)" asp-route-searchString="@ViewData["searchString"]">Siguiente</a>
+    }
+</div>
 
 @section Scripts {
     <script>

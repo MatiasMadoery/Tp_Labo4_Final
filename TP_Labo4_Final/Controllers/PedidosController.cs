@@ -19,17 +19,35 @@ namespace TP_Labo4_Final.Controllers
         }
 
         // GET: Pedidos
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int pagina = 1, int tamanioPagina = 5)
         {
+            // Obtener los clientes del pedido
             var pedidos = from p in _context.Pedidos
                     .Include(p => p.Cliente)
                     select p;
 
+            // Filtrar por el texto de búsqueda si se proporciona
             if (!String.IsNullOrEmpty(searchString))
             {
                 pedidos = pedidos.Where(p => p.Numero!.Contains(searchString));
             }
-            return View(await pedidos.ToListAsync());
+
+            // Obtener el total de pedidos (para calcular las páginas)
+            var totalPedidos = await pedidos.CountAsync();
+
+            // Aplicar paginación (omitir los registros anteriores y tomar solo los de la página actual)
+            var pedidosPaginados = await pedidos
+                                         .Skip((pagina - 1) * tamanioPagina)
+                                         .Take(tamanioPagina)
+                                         .ToListAsync();
+
+            // Crear el paginador con la lista paginada
+            var paginador = new Paginador<Pedido>(pedidosPaginados, totalPedidos, pagina, tamanioPagina);
+
+            //Para mantener el valor del campo de búsqueda cuando el usuario cambie de página
+            ViewData["searchString"] = searchString;
+
+            return View(paginador);
         }
 
         // GET: Pedidos/Details/5
