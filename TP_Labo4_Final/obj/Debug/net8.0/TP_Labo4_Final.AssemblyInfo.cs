@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TP_Labo4_Final")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+499240876614f5b87ed301c34dda114c0abe6a45")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de6ad9460ee9d560762cb68f696c95a0aeeec036")]
 [assembly: System.Reflection.AssemblyProductAttribute("TP_Labo4_Final")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TP_Labo4_Final")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

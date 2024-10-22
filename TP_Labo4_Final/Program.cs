@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using TP_Labo4_Final.Models;
 
@@ -7,6 +8,21 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("conexionDb"))
     );
+
+// Agregar servicios de autenticación y autorización
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Usuarios/Login"; // La ruta de login
+        options.AccessDeniedPath = "/Usuarios/AccesoDenegado"; // Ruta si el acceso es denegado
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("EsUsuario", policy => policy.RequireRole("Usuario", "Administrador"));
+    options.AddPolicy("EsAdministrador", policy => policy.RequireRole("Administrador"));
+    options.AddPolicy("EsUsuario", policy => policy.RequireRole("Usuario"));
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -26,6 +42,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Agregar autenticación y autorización al pipeline
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

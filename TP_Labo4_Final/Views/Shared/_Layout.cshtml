@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="~/TP_Labo4_Final.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+            @if (User.Identity!.IsAuthenticated)
+            {
+                <li><a asp-controller="Usuarios" asp-action="Logout">Cerrar Sesión</a></li>
+            }
+            else
+            {
+                <li><a asp-controller="Usuarios" asp-action="Login">Iniciar Sesión</a></li>
+            }
+        </ul>
+    </nav>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">

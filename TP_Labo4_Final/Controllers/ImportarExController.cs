@@ -1,10 +1,12 @@
 ﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TP_Labo4_Final.Models;
 
 namespace TP_Labo4_Final.Controllers
 {
+    [Authorize(Policy = "EsAdministrador")] // Solo los administradores podrán acceder a este controlador
     public class ImportarExController : Controller
     {
         private readonly AppDbContext _context;

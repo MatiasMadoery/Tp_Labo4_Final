@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using TP_Labo4_Final.Models;
 
 namespace TP_Labo4_Final.Controllers
 {
+        
     public class PedidosController : Controller
     {
         private readonly AppDbContext _context;
@@ -18,7 +20,7 @@ namespace TP_Labo4_Final.Controllers
             _context = context;
         }
 
-        // GET: Pedidos
+        // GET: Pedidos       
         public async Task<IActionResult> Index(string searchString, int pagina = 1, int tamanioPagina = 5)
         {
             // Obtener los clientes del pedido
@@ -50,7 +52,8 @@ namespace TP_Labo4_Final.Controllers
             return View(paginador);
         }
 
-        // GET: Pedidos/Details/5
+
+        // GET: Pedidos/Details/5        
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -76,6 +79,7 @@ namespace TP_Labo4_Final.Controllers
         }
 
         // GET: Pedidos/Create
+        [Authorize(Policy = "EsUsuario")]
         public IActionResult Create()
         {            
                 // Generar el número de pedido aquí
@@ -97,6 +101,7 @@ namespace TP_Labo4_Final.Controllers
 
         //Metodo http para con Json y Ajax poder acceder al listado de articulos en tiempo real. 
         [HttpGet]
+        [Authorize(Policy = "EsUsuario")]
         public IActionResult GetArticulos()
         {
             var articulos = _context.Articulos.Select(a => new { a.Id, a.Descripcion }).ToList();
@@ -109,7 +114,9 @@ namespace TP_Labo4_Final.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Policy = "EsUsuario")]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Create([Bind("Id,Numero,Fecha,ClienteId")] Pedido pedido, int[] articuloIds, int[] cantidades)
         {
             if (ModelState.IsValid)

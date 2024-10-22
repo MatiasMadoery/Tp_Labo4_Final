@@ -1,11 +1,15 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TP_Labo4_Final.Models;
 
 namespace TP_Labo4_Final.Controllers
 {
+    
+    [Authorize(Policy = "EsUsuario")] 
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)

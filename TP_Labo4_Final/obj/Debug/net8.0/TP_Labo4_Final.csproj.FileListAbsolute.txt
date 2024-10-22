@@ -265,3 +265,11 @@ C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFina
 C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\RBush.dll
 C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\SixLabors.Fonts.dll
 C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\System.IO.Packaging.dll
+C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\matim\OneDrive\TUP\segundoAño\SegundoCuatrimestre\LaboratorioIV\TpFinal\TP_Labo4_Final\TP_Labo4_Final\obj\Debug\net8.0\TP_Labo4_Final.MvcApplicationPartsAssemblyInfo.cs

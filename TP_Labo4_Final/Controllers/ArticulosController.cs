@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TP_Labo4_Final.Models;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TP_Labo4_Final.Controllers
 {
+    [Authorize(Policy = "EsAdministrador")] // Solo los administradores podrán acceder a este controlador
     public class ArticulosController : Controller
     {
         private readonly AppDbContext _context;

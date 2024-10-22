@@ -57,6 +57,8 @@ namespace TP_Labo4_Final.Models
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Viajante> Viajantes { get; set; }
         public DbSet<ArticuloCantidad> ArticuloCantidades { get; set; }
+        
+        public DbSet<Usuario> Usuarios { get; set; } // Agregar Usuarios
     }
 
     
