@@ -5,8 +5,8 @@ using TP_Labo4_Final.Models;
 
 namespace TP_Labo4_Final.Controllers
 {
-    
-    [Authorize(Policy = "EsUsuario")] 
+
+    [AllowAnonymous]
     public class HomeController : Controller
     {
 

@@ -9,6 +9,7 @@ builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("conexionDb"))
     );
 
+
 // Agregar servicios de autenticación y autorización
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
@@ -21,7 +22,7 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("EsUsuario", policy => policy.RequireRole("Usuario", "Administrador"));
     options.AddPolicy("EsAdministrador", policy => policy.RequireRole("Administrador"));
-    options.AddPolicy("EsUsuario", policy => policy.RequireRole("Usuario"));
+    //options.AddPolicy("EsUsuario", policy => policy.RequireRole("Usuario"));
 });
 
 // Add services to the container.

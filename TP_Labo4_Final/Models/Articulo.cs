@@ -10,7 +10,7 @@ namespace TP_Labo4_Final.Models
         public decimal Precio { get; set; }
         public int Stock { get; set; }     
 
-        [Display(Name = "Foto")]
+        [Display(Name = "Imagen")]
         public string? NombreImagen { get; set; }
 
         //Clave foranea a Categoria

@@ -10,7 +10,7 @@ using TP_Labo4_Final.Models;
 
 namespace TP_Labo4_Final.Controllers
 {
-        
+    
     public class PedidosController : Controller
     {
         private readonly AppDbContext _context;
@@ -20,7 +20,8 @@ namespace TP_Labo4_Final.Controllers
             _context = context;
         }
 
-        // GET: Pedidos       
+        // GET: Pedidos
+         [Authorize(Policy = "EsAdministrador")]
         public async Task<IActionResult> Index(string searchString, int pagina = 1, int tamanioPagina = 5)
         {
             // Obtener los clientes del pedido
@@ -53,7 +54,8 @@ namespace TP_Labo4_Final.Controllers
         }
 
 
-        // GET: Pedidos/Details/5        
+        // GET: Pedidos/Details/5
+        [Authorize(Policy = "EsAdministrador")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -61,13 +63,11 @@ namespace TP_Labo4_Final.Controllers
                 return NotFound();
             }
 
-
             var pedido = await _context.Pedidos
                 .Include(p => p.Cliente) // Incluir el cliente
                 .Include(p => p.ArticulosCantidades!) // Incluir los artículos asociados
                 .ThenInclude(ac => ac.Articulo)
                 .FirstOrDefaultAsync(m => m.Id == id);
-
 
            
             if (pedido == null)
@@ -79,6 +79,7 @@ namespace TP_Labo4_Final.Controllers
         }
 
         // GET: Pedidos/Create
+        
         [Authorize(Policy = "EsUsuario")]
         public IActionResult Create()
         {            
@@ -113,9 +114,9 @@ namespace TP_Labo4_Final.Controllers
         // POST: Pedidos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [Authorize(Policy = "EsUsuario")]
+        [HttpPost]        
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "EsUsuario")]
 
         public async Task<IActionResult> Create([Bind("Id,Numero,Fecha,ClienteId")] Pedido pedido, int[] articuloIds, int[] cantidades)
         {

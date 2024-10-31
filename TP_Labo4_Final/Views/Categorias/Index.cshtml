@@ -1,35 +1,44 @@
 ﻿@model IEnumerable<TP_Labo4_Final.Models.Categoria>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Categorías";
 }
 
-<h1>Categorias</h1>
+<h1 class="mb-4">Lista de Categorías</h1>
 
-<p>
-    <a asp-action="Create">Cargar nueva categoria</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
-            </td>
-        </tr>
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-success">Cargar nueva categoria</a>
+</div>
+<hr/>
+@if (!Model.Any()) // Mensaje si no hay categorías
+{
+    <div class="alert alert-warning" role="alert">
+        No se encontraron categorías.
+    </div>
 }
-    </tbody>
-</table>
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().Nombre)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Detalle</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Borrar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

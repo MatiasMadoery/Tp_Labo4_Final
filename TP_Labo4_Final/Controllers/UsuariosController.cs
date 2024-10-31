@@ -9,7 +9,7 @@ namespace TP_Labo4_Final.Controllers
 {
     public class UsuariosController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext _context; 
 
         public UsuariosController(AppDbContext context)
         {
@@ -46,11 +46,11 @@ namespace TP_Labo4_Final.Controllers
                 // Redirigir dependiendo del rol
                 if (usuario.Rol == "Administrador")
                 {
-                    return RedirectToAction("Index"); // Redirige a una acción de administrador
+                    return RedirectToAction("Index", "Home"); // Redirige a una acción de administrador
                 }
                 else
                 {
-                    return RedirectToAction("Index"); // Redirige a una acción de usuario
+                    return RedirectToAction("Index","Home"); // Redirige a una acción de usuario
                 }
             }
 

@@ -1,12 +1,11 @@
 ﻿@model TP_Labo4_Final.Models.Cliente
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear nuevo cliente";
 }
 
 <h1>Cargar nuevo cliente</h1>
 
-<h4>Cliente</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -77,21 +76,22 @@
                 <select asp-for="ViajanteId" class="form-control" asp-items="ViewBag.ViajanteId"></select>
                 <span asp-validation-for="ViajanteId" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
                 </label>
             </div>
-
+            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
+<br />
 <div>
-    <a asp-action="Index">Volver a la lista</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a> 
 </div>
 
 @section Scripts {
