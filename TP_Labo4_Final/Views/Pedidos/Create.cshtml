@@ -1,18 +1,17 @@
 ﻿@model TP_Labo4_Final.Models.Pedido
-
 @{
     ViewData["Title"] = "Crear nuevo pedido";
 }
-
 <h1>Nuevo pedido</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>          
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
                 <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" class="form-control" type="date"/>
+                <input asp-for="Fecha" class="form-control" type="date" />
                 <span asp-validation-for="Fecha" class="text-danger"></span>
             </div>
             <br />
@@ -35,7 +34,7 @@
                     <tbody id="articulos-container">
                         <tr>
                             <td>
-                                <select name="articuloIds" class="form-control" asp-items="ViewBag.ArticuloId"></select>
+                                <select name="articuloIds" class="form-control articulo-select" asp-items="ViewBag.ArticuloId"></select>
                             </td>
                             <td>
                                 <input type="number" name="cantidades" class="form-control" />
@@ -51,20 +50,20 @@
             </div>
             <hr />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear nuevo pedido" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 <br />
-<div>
-    <a asp-action="Index">Volver a la lista</a>
-</div>
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="~/js/cargarArticlos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="~/js/cargarArticulos.js"></script>
+    <script src="~/js/seleccionArticulo.js"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 }
