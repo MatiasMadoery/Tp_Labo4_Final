@@ -5,12 +5,44 @@
       "PackagePath": "staticwebassets\\TP_Labo4_Final.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\imagesPage\\FilAnker.jpg",
+      "PackagePath": "staticwebassets\\img\\imagesPage\\FilAnker.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\imagesPage\\FilCrypton (2).jpg",
+      "PackagePath": "staticwebassets\\img\\imagesPage\\FilCrypton (2).jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\imagesPage\\FilFlap.jpg",
+      "PackagePath": "staticwebassets\\img\\imagesPage\\FilFlap.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\imagesPage\\FilRecto.jpg",
+      "PackagePath": "staticwebassets\\img\\imagesPage\\FilRecto.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\imagesPage\\FilSmash.jpg",
+      "PackagePath": "staticwebassets\\img\\imagesPage\\FilSmash.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\imagesPage\\Logo.jpg",
+      "PackagePath": "staticwebassets\\img\\imagesPage\\Logo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\imagesPage\\fondo.jpg",
+      "PackagePath": "staticwebassets\\img\\imagesPage\\fondo.jpg"
     },
     {
       "Id": "C:\\Users\\matim\\OneDrive\\TUP\\segundoAño\\SegundoCuatrimestre\\LaboratorioIV\\TpFinal\\TP_Labo4_Final\\TP_Labo4_Final\\wwwroot\\img\\images\\046656437610432b8d834bd0b8203d41.jpg",

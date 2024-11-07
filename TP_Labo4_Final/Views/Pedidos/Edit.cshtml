@@ -1,55 +1,10 @@
-﻿@* @model TP_Labo4_Final.Models.Pedido
+﻿@model TP_Labo4_Final.Models.Pedido
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Pedido</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Numero" class="control-label"></label>
-                <input asp-for="Numero" class="form-control" />
-                <span asp-validation-for="Numero" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" class="form-control" />
-                <span asp-validation-for="Fecha" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClienteId" class="control-label"></label>
-                <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
-                <span asp-validation-for="ClienteId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-} *@
-
-@model TP_Labo4_Final.Models.Pedido
-
-@{
-    ViewData["Title"] = "Edit";
-}
-
-<h1>Edit</h1>
+<h1>Editar</h1>
 <h4>Pedido</h4>
 <hr />
 <div class="row">
@@ -64,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" class="form-control" />
+                <input asp-for="Fecha" class="form-control" type="date"/>
                 <span asp-validation-for="Fecha" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -72,7 +27,6 @@
                 <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
                 <span asp-validation-for="ClienteId" class="text-danger"></span>
             </div>
-
             <!-- Nueva sección para añadir y editar artículos y cantidades -->
             <div class="form-group">
                 <label>Artículos y Cantidades</label>
@@ -100,48 +54,29 @@
                             </tr>
                         }
                     </tbody>
-                </table>
+                </table>                
                 <button type="button" class="btn btn-primary" id="add-item">Añadir Artículo</button>
             </div>
-
+            <br />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Actualizar pedido" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
-
+<br />
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
 </div>
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#add-item').click(function () {
-                var newRow = `<tr>
-                                <td>
-                                    <select name="articuloIds" class="form-control" asp-items="ViewBag.ArticuloId"></select>
-                                </td>
-                                <td>
-                                    <input type="number" name="cantidades" class="form-control" />
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger remove-item">Eliminar</button>
-                                </td>
-                              </tr>`;
-                $('#articulos-container').append(newRow);
-            });
-
-            $(document).on('click', '.remove-item', function () {
-                $(this).closest('tr').remove();
-            });
-        });
-
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="~/js/cargarArticulos.js"></script>
+    <script src="~/js/seleccionArticulo.js"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 }
 

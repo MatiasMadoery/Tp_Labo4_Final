@@ -9,7 +9,7 @@
         public int TotalPaginas { get; private set; }
 
         public Paginador(List<T> elementos, int totalElementos, int paginaActual, int elementosPorPagina)
-        {
+        {          
             Elementos = elementos;
             TotalElementos = totalElementos;
             PaginaActual = paginaActual;

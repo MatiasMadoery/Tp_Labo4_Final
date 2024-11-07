@@ -1,65 +1,4 @@
-﻿@* @model TP_Labo4_Final.Models.Pedido
-
-@{
-    ViewData["Title"] = "Details";
-}
-
-<h1>Detalle</h1>
-
-<div>
-    <h4>Pedido</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Numero)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Numero)
-        </dd>
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
-
-        <dt class="col-sm-2">
-            Cliente
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Cliente!.Nombre) @Html.DisplayFor(model => model.Cliente!.Apellido)
-        </dd>
-    </dl>
-</div>
-
-<h4>Artículos en el Pedido</h4>
-@* <table class="table">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Articulos!.First().Codigo)</th>
-            <th>@Html.DisplayNameFor(model => model.Articulos!.First().Descripcion)</th>
-            <th>@Html.DisplayNameFor(model => model.Articulos!.First().Precio)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var articulo in Model.Articulos!)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => articulo.Codigo)</td>
-                <td>@Html.DisplayFor(modelItem => articulo.Descripcion)</td>
-                <td>@Html.DisplayFor(modelItem => articulo.Precio)</td>
-            </tr>
-        }
-    </tbody>
-</table> *@
-
-@* <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
-    <a asp-action="Index">Volver a la lista</a> |
-    <a asp-action="Delete" asp-route-id="@Model?.Id">Eliminar</a>
-</div> *@ 
-@model TP_Labo4_Final.Models.Pedido
+﻿@model TP_Labo4_Final.Models.Pedido
 
 @{
     ViewData["Title"] = "Details";
@@ -113,11 +52,10 @@
         }
     </tbody>
 </table>
-
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
-    <a asp-action="Index">Volver a la lista</a> |
-    <a asp-action="Delete" asp-route-id="@Model?.Id">Eliminar</a>
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a> |
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a> |
+    <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-danger">Eliminar</a>
 </div>
 
 

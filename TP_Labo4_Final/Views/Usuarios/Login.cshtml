@@ -1,11 +1,14 @@
-﻿@{
-    ViewData["Title"] = "Iniciar Sesión";
+﻿ @{
+    ViewData["Title"] = "Iniciar Sesión";    
 }
+<head>
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-center bg-primary text-white">
+                <div class="card-header text-center bg-black">
                     <h2>Iniciar Sesión</h2>
                 </div>
                 <div class="card-body">
@@ -25,7 +28,7 @@
                             <input type="password" id="contrasena" name="contrasena" class="form-control" placeholder="Introduce tu contraseña" required />
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+                            <button type="submit" class="btn">Iniciar Sesión</button>
                         </div>
                     </form>
                 </div>
@@ -33,5 +36,4 @@
         </div>
     </div>
 </div>
-
 

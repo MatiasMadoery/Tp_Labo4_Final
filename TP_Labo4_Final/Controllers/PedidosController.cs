@@ -35,6 +35,9 @@ namespace TP_Labo4_Final.Controllers
                 pedidos = pedidos.Where(p => p.Numero!.Contains(searchString));
             }
 
+            //Ordenar los pedidos por numero descendente
+            pedidos = pedidos.OrderByDescending(p => p.Numero);
+
             // Obtener el total de pedidos (para calcular las páginas)
             var totalPedidos = await pedidos.CountAsync();
 
@@ -174,7 +177,12 @@ namespace TP_Labo4_Final.Controllers
                 return NotFound();
             }
 
-            var pedido = await _context.Pedidos.FindAsync(id);
+            var pedido = await _context.Pedidos
+                    .Include(p => p.Cliente!)
+                    .Include(p => p.ArticulosCantidades!)
+                    .ThenInclude(ac => ac.Articulo)
+                    .FirstOrDefaultAsync(p => p.Id == id);
+                
             if (pedido == null)
             {
                 return NotFound();
